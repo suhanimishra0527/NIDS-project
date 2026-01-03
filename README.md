@@ -1,65 +1,150 @@
-# NIDS Project (Advanced)
+# Network Intrusion Detection System (NIDS)
 
-A modular, production-ready Network Intrusion Detection System built using Python, Scapy, and Flask.
+## Overview
+This project is a Network Intrusion Detection System (NIDS) developed to monitor
+network traffic and detect malicious or suspicious activities within a network.
+It is designed as an academic and learning-oriented implementation inspired by
+industry-standard tools such as Snort and Suricata.
 
-## 🚀 Features
+The system analyzes network behavior to identify potential security threats and
+presents the detected events through a SOC-style dashboard for monitoring and analysis.
 
-### Core Capabilities
-- **Real-time Packet Capture**: Monitors network traffic live.
-- **PCAP Replay**: Analyze offline `.pcap` files for forensic analysis.
-- **Threat Scoring Engine**: auto-calculates risk (LOW, MEDIUM, HIGH) based on severity.
-- **Web Dashboard**: Visualizes threats in real-time.
 
-### Advanced Detection Modules
-1.  **Signature Detection**: SQL Injection, XSS, etc.
-2.  **Port Scan Detection**: Identifies rapid access to multiple distinct ports (`threshold=10`).
-3.  **Brute Force Detection**: Flags high-frequency connection attempts to sensitive ports (SSH, FTP, HTTP).
-4.  **Anomaly Detection**: Monitors packet rate for DDoS-like behavior.
+## Objectives
+- To understand the working principles of network intrusion detection systems
+- To implement multiple detection techniques in a single framework
+- To visualize security alerts in a structured and meaningful way
+- To simulate and analyze real-world network attacks in a controlled environment
 
-## 📂 Project Structure
-- `src/`
-  - `detectors/`: Modular detection logic (`port_scan`, `brute_force`, `anomaly`, `signature`).
-  - `analyzer.py`: Orchestrates the detection pipeline.
-  - `scoring.py`: Risk calculation logic.
-  - `alerts.py`: Dual logging (Text + SQLite).
-- `dashboard/`: Flask web application.
-- `configs/`: YAML configuration.
 
-## 🛠 Installation
-```bash
-pip install -r requirement.txt
-```
+## Key Features
+- Port scan detection based on connection patterns
+- Signature-based detection for common web attacks such as SQL Injection and XSS
+- Anomaly-based detection using traffic rate analysis
+- Real-time alert generation
+- Persistent alert logging for historical analysis
+- SOC-style dashboard with graphs and alert history
+- Timestamped alerts using system date and time
 
-## ⚡ Usage
 
-### 1. Live Detection
-Start the NIDS in live mode:
+
+## Detection Techniques Used
+
+### 1. Port Scan Detection
+Detects rapid or sequential connection attempts to multiple ports from a single source,
+indicating reconnaissance activity.
+
+### 2. Signature-Based Detection
+Matches network payloads against predefined patterns to identify known attacks such as:
+- SQL Injection
+- Cross-Site Scripting (XSS)
+
+### 3. Anomaly-Based Detection
+Monitors traffic behavior and detects deviations from normal patterns, such as unusually
+high packet or request rates.
+
+
+## Project Architecture
+The project follows a modular architecture with a clear separation between detection
+and visualization components.
+
+- Detection Engine: Runs locally and monitors network traffic
+- Alert Logger: Stores detected alerts persistently in a log file
+- Dashboard: Reads alert logs and presents them visually
+
+
+## Project Structure
+NIDS/
+├── run.py
+├── dashboard/
+│ ├── templates/
+│ │ └── index.html
+│ └── static/
+│ ├── css/
+│ ├── js/
+│ └── assets/
+├── logs/
+│ └── alerts.json
+├── requirements.txt
+└── README.md
+
+yaml
+
+
+## How to Run the Project Locally
+
+### Step 1: Start the Detection Engine
+Run the following command to start live intrusion detection:
 ```bash
 python run.py --live
-```
+Step 2: Start the Dashboard
+In a separate terminal, start the dashboard:
 
-### 2. Dashboard
-Start the Web UI (Open `http://localhost:5000`):
-```bash
+bash
+Copy code
 python run.py --dashboard
-```
+Open the dashboard in a browser:
 
-### 3. PCAP Analysis
-Replay a capture file:
+arduino
+Copy code
+http://localhost:5000
+Attack Simulation
+Attacks can be simulated manually using PowerShell or command-line tools to generate:
+
+Port scans
+
+Injection payloads
+
+High-volume traffic for anomaly detection
+
+These simulations help validate the effectiveness of each detection module.
+
+Deployment Note
+Due to security restrictions imposed by cloud platforms, live packet capture and
+network sniffing cannot be performed in deployed environments.
+
+Therefore:
+
+Live intrusion detection is demonstrated locally
+
+The deployed version provides a read-only dashboard for visualization
+
+Alert history is loaded from persistent logs
+
+This approach aligns with how real-world NIDS solutions are demonstrated and evaluated.
+
+Technologies Used
+Python
+
+Flask
+
+PowerShell (for attack simulation)
+
+JSON-based persistent logging
+
+HTML, CSS, and JavaScript for dashboard visualization
+
+Limitations
+The system is designed for educational purposes and small-scale environments
+
+It does not block traffic (IDS, not IPS)
+
+Cloud deployment is limited to visualization only
+
+Academic Purpose
+This project is developed as an academic cybersecurity project to demonstrate
+core concepts of network intrusion detection, traffic analysis, and security monitoring.
+
+It is not intended for direct use in production environments without further hardening
+and optimization.
+
+yaml
+
+### What to do next
+1. Paste this into `README.md`
+2. Save the file
+3. Run:
 ```bash
-python run.py --pcap traffic.pcap
-```
-
-## 🧪 Testing & Simulation
-To verify the system, run the simulation script which mimics **SQLi, XSS, Port Scans, and Brute Force attacks**:
-```bash
-python attack_simulation.py
-```
-
-Run unit tests:
-```bash
-python -m unittest discover tests
-```
-
-## ⚙️ Configuration
-All thresholds and toggles are in `configs/config.yaml`.
+git add README.md
+git commit -m "Update detailed project README"
+git push
