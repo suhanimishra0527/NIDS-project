@@ -1,0 +1,36 @@
+# NIDS Configuration
+
+network:
+  interface: null  # null means default interface
+  
+logging:
+  log_dir: "logs"
+  filename: "alerts.txt"
+
+signatures:
+  - "UNION SELECT"
+  - "DROP TABLE"
+  - "/etc/passwd"
+  - "alert(1)"
+
+port_scan:
+  enabled: true
+  interval: 60  # seconds
+  threshold: 10 # distinct ports
+
+brute_force:
+  enabled: true
+  interval: 60  # seconds
+  threshold: 20 # attempts
+
+anomaly:
+  enabled: true
+  packet_rate_threshold: 100 # packets per second
+
+scoring:
+  low: 1
+  medium: 5
+  high: 10
+  risk_thresholds:
+    medium: 5
+    high: 20

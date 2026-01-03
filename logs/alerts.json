@@ -1,0 +1,24 @@
+{"timestamp": "2026-01-03 01:10:54", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (366 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:10:55", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (277 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:10:56", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (104 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:10:57", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (130 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:10:58", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (253 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:13:47", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (261 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:13:48", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (299 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:13:49", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (513 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:13:50", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (841 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:17:34", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (147 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:19:43", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (173 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 01:20:01", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (369 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:35", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (158 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:36", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (300 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:37", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (148 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:38", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (197 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:40", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (157 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:41", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (301 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:42", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (262 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:43", "severity": "MEDIUM", "message": "Brute Force detected: 192.168.29.78 -> Port 443 (21 attempts/min)", "source_ip": "192.168.29.78", "type": "brute_force"}
+{"timestamp": "2026-01-03 14:18:43", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (461 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:44", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (139 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:45", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (296 pkt/s)", "source_ip": "Network", "type": "anomaly"}
+{"timestamp": "2026-01-03 14:18:48", "severity": "MEDIUM", "message": "Anomaly: High packet rate detected (147 pkt/s)", "source_ip": "Network", "type": "anomaly"}
