@@ -47,9 +47,9 @@ high packet or request rates.
 The project follows a modular architecture with a clear separation between detection
 and visualization components.
 
-- Detection Engine: Runs locally and monitors network traffic
-- Alert Logger: Stores detected alerts persistently in a log file
-- Dashboard: Reads alert logs and presents them visually
+- **Detection Engine**: Runs locally and monitors network traffic
+- **Alert Logger**: Stores detected alerts persistently in log files
+- **Dashboard**: Reads alert logs and presents them visually
 
 
 ## Project Structure
@@ -69,81 +69,138 @@ NIDS/
 
 yaml
 
-## How to Run the Project Locally
+## Running the Project Locally (Step-by-Step)
 
-### Step 1: Start the Detection Engine
-Run the following command to start live intrusion detection:
+### Prerequisites
+- Python 3.9 or higher
+- Git
+- Administrator / Root privileges (required for packet capture)
+- Npcap (Windows only)  
+  Download: https://nmap.org/npcap/  
+  Enable **WinPcap compatibility mode** during installation
+
+### Step 1: Clone the Repository
 ```bash
-python run.py --live
-Step 2: Start the Dashboard
-In a separate terminal, start the dashboard:
+git clone https://github.com/suhanimishra0527/NIDS-project.git
+cd NIDS-project
+Step 2: (Optional) Create a Virtual Environment
+bash
+
+python -m venv venv
+Activate it:
+
+Windows
 
 bash
-Copy code
+
+venv\Scripts\activate
+Linux / macOS
+
+bash
+
+source venv/bin/activate
+Step 3: Install Dependencies
+bash
+
+pip install -r requirements.txt
+Install Scapy for local detection:
+
+bash
+
+pip install scapy
+Step 4: Run the Dashboard (Visualization Mode)
+This mode is cloud-safe and does not require administrator privileges.
+
+bash
+
 python run.py --dashboard
-Open the dashboard in a browser:
+Open in browser:
 
 arduino
-Copy code
+
 http://localhost:5000
-Attack Simulation
-Attacks can be simulated manually using PowerShell or command-line tools to generate:
+Step 5: Run Live Intrusion Detection (Local Mode)
+ Run the terminal as Administrator / Root
 
-Port scans
+bash
 
-Injection payloads
+python run.py --live
+This enables:
 
-High-volume traffic for anomaly detection
+Live packet capture
 
-These simulations help validate the effectiveness of each detection module.
+Attack detection
+
+Alert generation
+
+Attack Simulation (Optional Testing)
+Port Scan (Windows PowerShell)
+powershell
+
+1..50 | ForEach-Object { Test-NetConnection localhost -Port $_ -WarningAction SilentlyContinue }
+Traffic Spike / Anomaly
+bash
+
+ping localhost -t
+SQL Injection / XSS Simulation
+bash
+Copy code
+curl "http://localhost:5000/test?input=' OR 1=1--"
+curl "http://localhost:5000/test?input=<script>alert(1)</script>"
+Detected attacks will appear in:
+
+Live detection terminal
+
+Dashboard interface
+
+Alert log files
+
+Cloud vs Local Execution
+Mode	Environment	Functionality
+Local	Personal system	Full packet capture and detection
+Cloud	Render	Dashboard and visualization only
+
+Cloud platforms restrict raw socket access; therefore, live packet capture runs locally.
 
 Deployment Note
 Due to security restrictions imposed by cloud platforms, live packet capture and
 network sniffing cannot be performed in deployed environments.
 
-Therefore:
-
-Live intrusion detection is demonstrated locally
-
-The deployed version provides a read-only dashboard for visualization
-
-Alert history is loaded from persistent logs
-
-This approach aligns with how real-world NIDS solutions are demonstrated and evaluated.
+The deployed version provides a read-only SOC-style dashboard for visualization,
+while full detection is demonstrated locally.
 
 Technologies Used
 Python
 
 Flask
 
-PowerShell (for attack simulation)
+Scapy (local detection)
+
+PowerShell (attack simulation)
 
 JSON-based persistent logging
 
 HTML, CSS, and JavaScript for dashboard visualization
 
 Limitations
-The system is designed for educational purposes and small-scale environments
+Designed for educational and small-scale environments
 
-It does not block traffic (IDS, not IPS)
+Intrusion Detection System only (IDS), not an Intrusion Prevention System (IPS)
 
-Cloud deployment is limited to visualization only
+Cloud deployment limited to visualization
 
 Academic Purpose
 This project is developed as an academic cybersecurity project to demonstrate
 core concepts of network intrusion detection, traffic analysis, and security monitoring.
-
-It is not intended for direct use in production environments without further hardening
-and optimization.
+It is not intended for direct production use without further hardening and optimization.
 
 yaml
 
+##  FINAL STEP 
 
-### What to do next
-1. Paste this into `README.md`
-2. Save the file
-3. Run:
+After pasting and saving:
+
 ```bash
 git add README.md
-git commit -m "Update detailed project README"
+git commit -m "Update README with local usage and cloning steps"
 git push
